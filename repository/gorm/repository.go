@@ -1,6 +1,8 @@
 package gorm
 
 import (
+	"fmt"
+
 	"github.com/leandro-lugaresi/hub"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
@@ -26,10 +28,15 @@ func NewGormRepository(db *gorm.DB, hub *hub.Hub, logger *zap.Logger, doMigratio
 		logger: logger.Named("repository"),
 		stamps: makeStampRepository(db),
 	}
+	fmt.Println("before migration")
 	if doMigration {
+		fmt.Println("do migration")
 		if init, err = migration.Migrate(db); err != nil {
+			fmt.Println("migration error:", err)
 			return nil, false, err
 		}
+		fmt.Println("migration done")
+		fmt.Println(init)
 	}
 	return
 }

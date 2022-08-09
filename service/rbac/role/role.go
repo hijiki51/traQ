@@ -1,6 +1,8 @@
 package role
 
 import (
+	"fmt"
+
 	"github.com/traPtitech/traQ/model"
 	"github.com/traPtitech/traQ/service/rbac/permission"
 )
@@ -115,6 +117,9 @@ func (roles Roles) IsGranted(p permission.Permission) bool {
 // HasAndIsGranted セットが指定したロールを持ち、そのロールに指定した権限が許可されているかどうか
 func (roles Roles) HasAndIsGranted(r string, p permission.Permission) bool {
 	set, ok := roles[r]
+	for _, v := range roles {
+		fmt.Println(v.Name())
+	}
 	if !ok {
 		return false
 	}

@@ -103,6 +103,7 @@ func serveCommand() *cobra.Command {
 				logger.Fatal("failed to create server", zap.Error(err))
 			}
 
+			logger.Info("data initializing... before")
 			// 初期化
 			if init {
 				logger.Info("data initializing...")
