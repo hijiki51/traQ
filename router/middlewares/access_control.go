@@ -26,7 +26,7 @@ func AccessControlMiddlewareGenerator(r rbac.RBAC) func(p ...permission.Permissi
 					for _, v := range p {
 						if !r.IsAnyGranted(scopes.StringArray(), v) {
 							// NG
-							return echo.NewHTTPError(http.StatusForbidden, fmt.Sprintf("you are not permitted to request to '%s'", c.Request().URL.Path))
+							return echo.NewHTTPError(http.StatusForbidden, fmt.Sprintf("OAuth2: you are not permitted to request to '%s'", c.Request().URL.Path))
 						}
 					}
 				}
@@ -36,7 +36,9 @@ func AccessControlMiddlewareGenerator(r rbac.RBAC) func(p ...permission.Permissi
 				for _, v := range p {
 					if !r.IsGranted(user.GetRole(), v) {
 						// NG
-						return echo.NewHTTPError(http.StatusForbidden, fmt.Sprintf("you are not permitted to request to '%s'", c.Request().URL.Path))
+						fmt.Println(user.GetRole())
+						fmt.Println(v)
+						return echo.NewHTTPError(http.StatusForbidden, fmt.Sprintf("User: you are not permitted to request to '%s'", c.Request().URL.Path))
 					}
 				}
 
