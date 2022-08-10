@@ -44,7 +44,7 @@ jobs:
             TRAQ_VERSION=${{ env.TRAQ_VERSION }}
             TRAQ_REVISION=${{ env.TRAQ_REVISION }}
           tags: |
-            ghcr.io/traptitech/${{ env.IMAGE_NAME }}:master
+            ghcr.io/hijiki51/${{ env.IMAGE_NAME }}:master
   scan:
     name: Scan Image Vulnerability
     runs-on: ubuntu-latest
@@ -52,12 +52,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Pull docker image
-        run: docker pull ghcr.io/traptitech/${IMAGE_NAME}:${IMAGE_TAG}
+        run: docker pull ghcr.io/hijiki51/${IMAGE_NAME}:${IMAGE_TAG}
       - name: Container image scan
         uses: Azure/container-scan@v0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          image-name: ghcr.io/traptitech/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          image-name: ghcr.io/hijiki51/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
   deploy-staging:
     name: Deploy staging
     runs-on: ubuntu-latest
