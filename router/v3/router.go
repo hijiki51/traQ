@@ -52,6 +52,8 @@ type Config struct {
 
 	// SkyWaySecretKey SkyWayクレデンシャル用シークレットキー
 	SkyWaySecretKey string
+	// SkyWayAPIKey SkyWayクレデンシャル用APIキー
+	SkyWayAPIKey string
 
 	// AllowSignUp ユーザーが自分自身で登録できるかどうか
 	AllowSignUp bool

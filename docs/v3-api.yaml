@@ -6091,6 +6091,9 @@ components:
         peerId:
           type: string
           description: ピアID
+        roomId:
+          type: string
+          description: ルームID
       required:
         - peerId
     WebRTCAuthenticateResult:
