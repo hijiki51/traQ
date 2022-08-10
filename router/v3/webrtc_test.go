@@ -49,13 +49,14 @@ func TestHandlers_PostWebRTCAuthenticate(t *testing.T) {
 	path := "/api/v3/webrtc/authenticate"
 	env := Setup(t, common1)
 	user := env.CreateUser(t, rand)
+	channel := env.CreateChannel(t, rand)
 	s := env.S(t, user.GetID())
 
 	t.Run("not logged in", func(t *testing.T) {
 		t.Parallel()
 		e := env.R(t)
 		e.POST(path).
-			WithJSON(&PostWebRTCAuthenticateRequest{PeerID: user.GetID().String()}).
+			WithJSON(&PostWebRTCAuthenticateRequest{PeerID: user.GetID().String(), RoomID: channel.ID.String()}).
 			Expect().
 			Status(http.StatusUnauthorized)
 	})
@@ -75,7 +76,7 @@ func TestHandlers_PostWebRTCAuthenticate(t *testing.T) {
 		e := env.R(t)
 		obj := e.POST(path).
 			WithCookie(session.CookieName, s).
-			WithJSON(&PostWebRTCAuthenticateRequest{PeerID: user.GetID().String()}).
+			WithJSON(&PostWebRTCAuthenticateRequest{PeerID: user.GetID().String(), RoomID: channel.ID.String()}).
 			Expect().
 			Status(http.StatusOK).
 			JSON().

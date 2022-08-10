@@ -63,7 +63,7 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 
 	token, err := at.ToJWT()
 	if err != nil {
-		return echo.NewHTTPError(http.StatusInternalServerError)
+		return echo.NewHTTPError(http.StatusInternalServerError, err)
 	}
 
 	return c.JSON(http.StatusOK, echo.Map{

@@ -138,6 +138,7 @@ func TestMain(m *testing.M) {
 				Version:         "version",
 				Revision:        "revision",
 				SkyWaySecretKey: "dummy.secret.key",
+				SkyWayAPIKey:    "dummy.api.key",
 				AllowSignUp:     false,
 				EnabledExternalAccountProviders: map[string]bool{
 					"traq": true,
