@@ -26,6 +26,8 @@ type Config struct {
 	IsRefreshEnabled bool
 	// SkyWaySecretKey SkyWayクレデンシャル用シークレットキー
 	SkyWaySecretKey string
+	// SkyWayAPIKey SkyWayクレデンシャル用APIキー
+	SkyWayAPIKey string
 	// ExternalAuth 外部認証設定
 	ExternalAuth ExternalAuthConfig
 }
@@ -76,6 +78,7 @@ func provideV3Config(c *Config) v3.Config {
 		Version:                         c.Version,
 		Revision:                        c.Revision,
 		SkyWaySecretKey:                 c.SkyWaySecretKey,
+		SkyWayAPIKey:                    c.SkyWayAPIKey,
 		AllowSignUp:                     c.AllowSignUp,
 		EnabledExternalAccountProviders: c.ExternalAuth.ValidProviders(),
 	}

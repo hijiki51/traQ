@@ -178,6 +178,8 @@ type Config struct {
 	SkyWay struct {
 		// SecretKey シークレットキー
 		SecretKey string `mapstructure:"secretKey" yaml:"secretKey"`
+		// APIKey APIキー
+		APIKey string `mapstructure:"apiKey" yaml:"apiKey"`
 	} `mapstructure:"skyway" yaml:"skyway"`
 
 	// JWT JsonWebToken設定
@@ -288,6 +290,7 @@ func init() {
 	viper.SetDefault("externalAuth.slack.allowSignUp", false)
 	viper.SetDefault("externalAuth.slack.allowedTeamId", "")
 	viper.SetDefault("skyway.secretKey", "")
+	viper.SetDefault("skyway.apiKey", "")
 	viper.SetDefault("jwt.keys.private", "")
 }
 
@@ -472,6 +475,7 @@ func provideRouterConfig(c *Config) *router.Config {
 		AccessTokenExp:   c.OAuth2.AccessTokenExpire,
 		IsRefreshEnabled: c.OAuth2.IsRefreshEnabled,
 		SkyWaySecretKey:  c.SkyWay.SecretKey,
+		SkyWayAPIKey:     c.SkyWay.APIKey,
 		ExternalAuth:     provideRouterExternalAuthConfig(c),
 	}
 }
