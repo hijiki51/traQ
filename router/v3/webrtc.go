@@ -26,7 +26,7 @@ func (r PostWebRTCAuthenticateRequest) Validate() error {
 
 // PostWebRTCAuthenticate POST /webrtc/authenticate
 func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
-	if len(h.SkyWaySecretKey) == 0 {
+	if len(h.WebRTCSecretKey) == 0 {
 		return echo.NewHTTPError(http.StatusServiceUnavailable)
 	}
 
@@ -35,9 +35,7 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 		return err
 	}
 
-	// ここだけ書き換える
-
-	at := auth.NewAccessToken(h.SkyWayAPIKey, h.SkyWaySecretKey)
+	at := auth.NewAccessToken(h.WebRTCAPIKey, h.WebRTCSecretKey)
 
 	canpublish, cansubscribe := true, true
 
@@ -59,7 +57,6 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 
 	ts := time.Now().Unix()
 	ttl := vf.Seconds()
-	// hash := hmac.SHA256([]byte(fmt.Sprintf("%d:%d:%s", ts, ttl, req.PeerID)), h.SkyWaySecretKey)
 
 	token, err := at.ToJWT()
 	if err != nil {

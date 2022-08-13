@@ -137,10 +137,13 @@ oauth2:
   # Access token expiration time in seconds. Default: 31536000 (1 year)
   accessTokenExp: 31536000 # 1 year
 
-# Skyway settings.
+# webrtc settings.
 # You must set this to enable the call ('Qall') feature.
-skyway:
-  # Skyway secret key.
+# If using skyway, you only need to set secret key.
+webrtc:
+  # webrtc API key
+  apikey: apikey 
+  # webrtc secret key.
   secretKey: secretKey
 
 # (optional) JWT settings.
