@@ -35,10 +35,11 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 		return err
 	}
 
-	at := auth.NewAccessToken(h.WebRTCAPIKey, h.WebRTCSecretKey)
+	at := auth.NewAccessToken(h.WebRTCAPIKey, h.WebRTCSecretKey) // accesstokenを生成
 
 	canpublish, cansubscribe := true, true
 
+	// 権限を付与
 	grant := auth.VideoGrant{
 		RoomCreate: true,
 
@@ -49,6 +50,7 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 		CanSubscribe: &cansubscribe,
 	}
 
+	// 有効期間を設定
 	vf := time.Duration(10) * time.Hour
 
 	at.AddGrant(&grant).
@@ -58,7 +60,7 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 	ts := time.Now().Unix()
 	ttl := vf.Seconds()
 
-	token, err := at.ToJWT()
+	token, err := at.ToJWT() // jwtに変換
 	if err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err)
 	}
