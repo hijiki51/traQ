@@ -27,7 +27,7 @@ require (
 	github.com/jakobvarmose/go-qidenticon v0.0.0-20170128000056-5c327fb4e74a
 	github.com/json-iterator/go v1.1.12
 	github.com/labstack/echo-contrib v0.13.0
-	github.com/labstack/echo/v4 v4.7.2
+	github.com/labstack/echo/v4 v4.8.0
 	github.com/leandro-lugaresi/hub v1.1.1
 	github.com/livekit/protocol v1.0.0
 	github.com/lthibault/jitterbug/v2 v2.2.2
@@ -43,16 +43,16 @@ require (
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.12.0
 	github.com/stretchr/testify v1.8.0
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.23.0
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa
 	golang.org/x/exp v0.0.0-20210715201039-d37aa40e8013
 	golang.org/x/image v0.0.0-20210628002857-a66eb6448b8d
 	golang.org/x/net v0.0.0-20220728030405-41545e8bf201
 	golang.org/x/oauth2 v0.0.0-20220622183110-fd043fe589d2
 	golang.org/x/sync v0.0.0-20220601150217-0de741cfad7f
-	google.golang.org/api v0.91.0
+	google.golang.org/api v0.93.0
 	gopkg.in/yaml.v2 v2.4.0
-	gorm.io/driver/mysql v1.3.5
+	gorm.io/driver/mysql v1.3.6
 	gorm.io/gorm v1.23.8
 )
 
