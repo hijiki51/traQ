@@ -29,6 +29,7 @@ require (
 	github.com/labstack/echo-contrib v0.13.0
 	github.com/labstack/echo/v4 v4.8.0
 	github.com/leandro-lugaresi/hub v1.1.1
+	github.com/livekit/protocol v1.0.0
 	github.com/lthibault/jitterbug/v2 v2.2.2
 	github.com/motoki317/go-waveform v0.0.3
 	github.com/motoki317/sc v1.4.2
@@ -112,6 +113,7 @@ require (
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/subosito/gotenv v1.3.0 // indirect
+	github.com/twitchtv/twirp v8.1.2+incompatible // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.27.0 // indirect
 	github.com/valyala/fasttemplate v1.2.1 // indirect
@@ -124,11 +126,11 @@ require (
 	go.opencensus.io v0.23.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
-	golang.org/x/mod v0.5.0 // indirect
+	golang.org/x/mod v0.6.0-dev.0.20220106191415-9b9b3d81d5e3 // indirect
 	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220722155302-e5dcc9cfc0b9 // indirect
-	golang.org/x/tools v0.1.5 // indirect
+	golang.org/x/tools v0.1.10 // indirect
 	golang.org/x/xerrors v0.0.0-20220609144429-65e65417b02f // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220624142145-8cd45d7dbd1f // indirect

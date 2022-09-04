@@ -50,8 +50,10 @@ type Config struct {
 	Version  string
 	Revision string
 
-	// SkyWaySecretKey SkyWayクレデンシャル用シークレットキー
-	SkyWaySecretKey string
+	// WebRTCSecretKey WebRTCクレデンシャル用シークレットキー
+	WebRTCSecretKey string
+	// WebRTCAPIKey WebRTCクレデンシャル用APIキー
+	WebRTCAPIKey string
 
 	// AllowSignUp ユーザーが自分自身で登録できるかどうか
 	AllowSignUp bool

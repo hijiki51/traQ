@@ -24,8 +24,10 @@ type Config struct {
 	AccessTokenExp int
 	// IsRefreshEnabled リフレッシュトークンを発行するかどうか
 	IsRefreshEnabled bool
-	// SkyWaySecretKey SkyWayクレデンシャル用シークレットキー
-	SkyWaySecretKey string
+	// WebRTCSecretKey WebRTCクレデンシャル用シークレットキー
+	WebRTCSecretKey string
+	// WebRTCAPIKey WebRTCクレデンシャル用APIキー
+	WebRTCAPIKey string
 	// ExternalAuth 外部認証設定
 	ExternalAuth ExternalAuthConfig
 }
@@ -75,7 +77,8 @@ func provideV3Config(c *Config) v3.Config {
 	return v3.Config{
 		Version:                         c.Version,
 		Revision:                        c.Revision,
-		SkyWaySecretKey:                 c.SkyWaySecretKey,
+		WebRTCSecretKey:                 c.WebRTCSecretKey,
+		WebRTCAPIKey:                    c.WebRTCAPIKey,
 		AllowSignUp:                     c.AllowSignUp,
 		EnabledExternalAccountProviders: c.ExternalAuth.ValidProviders(),
 	}

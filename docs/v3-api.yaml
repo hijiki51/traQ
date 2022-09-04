@@ -3337,7 +3337,7 @@ paths:
       description: 指定したチャンネルに参加しているBOTのリストを取得します。
   /webrtc/authenticate:
     post:
-      summary: Skyway用認証API
+      summary: WebRTC用認証API
       responses:
         '200':
           description: OK
@@ -3351,7 +3351,7 @@ paths:
           description: |-
             Service Unavailable
             WebRTCは現在機能を停止しています
-      description: Skyway WebRTC用の認証API
+      description: WebRTC WebRTC用の認証API
       operationId: postWebRTCAuthenticate
       tags:
         - webrtc
@@ -6086,17 +6086,20 @@ components:
     PostWebRTCAuthenticateRequest:
       title: PostWebRTCAuthenticateRequest
       type: object
-      description: skyway用認証リクエスト
+      description: WebRTCサーバー用認証リクエスト
       properties:
         peerId:
           type: string
           description: ピアID
+        roomId:
+          type: string
+          description: ルームID
       required:
         - peerId
     WebRTCAuthenticateResult:
       title: WebRTCAuthenticateResult
       type: object
-      description: skyway用認証リクエストリザルト
+      description: WebRTCサーバー用認証リクエストリザルト
       properties:
         peerId:
           type: string

@@ -13,6 +13,7 @@
 .golangci.yml
 .goreleaser.yml
 .tbls.yml
+.tool-versions
 codecov.yml
 config.example.yml
 config.yml

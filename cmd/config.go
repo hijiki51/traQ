@@ -174,11 +174,13 @@ type Config struct {
 		} `mapstructure:"authPost" yaml:"authPost"`
 	} `mapstructure:"externalAuthentication" yaml:"externalAuthentication"`
 
-	// SkyWay SkyWay設定
-	SkyWay struct {
+	// WebRTC WebRTC設定
+	WebRTC struct {
 		// SecretKey シークレットキー
 		SecretKey string `mapstructure:"secretKey" yaml:"secretKey"`
-	} `mapstructure:"skyway" yaml:"skyway"`
+		// APIKey APIキー
+		APIKey string `mapstructure:"apiKey" yaml:"apiKey"`
+	} `mapstructure:"webrtc" yaml:"webrtc"`
 
 	// JWT JsonWebToken設定
 	JWT struct {
@@ -287,7 +289,8 @@ func init() {
 	viper.SetDefault("externalAuth.slack.clientSecret", "")
 	viper.SetDefault("externalAuth.slack.allowSignUp", false)
 	viper.SetDefault("externalAuth.slack.allowedTeamId", "")
-	viper.SetDefault("skyway.secretKey", "")
+	viper.SetDefault("webrtc.secretKey", "")
+	viper.SetDefault("webrtc.apiKey", "")
 	viper.SetDefault("jwt.keys.private", "")
 }
 
@@ -471,7 +474,8 @@ func provideRouterConfig(c *Config) *router.Config {
 		AllowSignUp:      c.AllowSignUp,
 		AccessTokenExp:   c.OAuth2.AccessTokenExpire,
 		IsRefreshEnabled: c.OAuth2.IsRefreshEnabled,
-		SkyWaySecretKey:  c.SkyWay.SecretKey,
+		WebRTCSecretKey:  c.WebRTC.SecretKey,
+		WebRTCAPIKey:     c.WebRTC.APIKey,
 		ExternalAuth:     provideRouterExternalAuthConfig(c),
 	}
 }

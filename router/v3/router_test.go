@@ -137,7 +137,8 @@ func TestMain(m *testing.M) {
 			Config: Config{
 				Version:         "version",
 				Revision:        "revision",
-				SkyWaySecretKey: "dummy.secret.key",
+				WebRTCSecretKey: "dummy.secret.key",
+				WebRTCAPIKey:    "dummy.api.key",
 				AllowSignUp:     false,
 				EnabledExternalAccountProviders: map[string]bool{
 					"traq": true,
