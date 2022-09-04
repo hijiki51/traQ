@@ -42,6 +42,8 @@ func (h *Handlers) PostWebRTCAuthenticate(c echo.Context) error {
 	// 権限を付与
 	grant := auth.VideoGrant{
 		RoomCreate: true,
+		RoomList:   true,
+		RoomRecord: true,
 
 		RoomJoin: true,
 		Room:     req.RoomID,
